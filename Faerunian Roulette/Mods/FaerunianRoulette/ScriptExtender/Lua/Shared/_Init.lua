@@ -33,4 +33,8 @@ else
     FRPrint(0, "Volitio's Faerûnian Roulette version " .. versionNumber .. " loaded")
 end
 
+RouletteGame = _MetaClass.New(FaerunianRoulette)
+-- Wrap the instance with the debugging layer
+RouletteGame = _MetaClass._Debug(RouletteGame)
+
 SubscribedEvents.SubscribeToEvents()
