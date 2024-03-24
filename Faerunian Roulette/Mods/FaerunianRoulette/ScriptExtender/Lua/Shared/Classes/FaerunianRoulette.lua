@@ -3,7 +3,7 @@ FaerunianRoulette = _Class:Create("FaerunianRoulette", nil, {
   character = nil,
   handledCharacter = false,
   remainingChambers = Config:getCfg().FEATURES.chamber_size,
-  remainingBullets = Config:getCfg().FEATURES.bullets_in_chamber,
+  remainingBullets = Config:getCfg().FEATURES.bullets_in_chambers,
   config = Config:getCfg().FEATURES
 })
 
@@ -13,6 +13,8 @@ end
 
 function FaerunianRoulette:PullTrigger()
   FRDebug(0, "Trigger pulled.")
+  FRDebug(2, "Remaining chambers:" .. self.remainingChambers)
+  FRDebug(2, "Remaining bullets:" .. self.remainingBullets)
   self:DetermineOutcome()
   self.remainingChambers = self.remainingChambers - 1
   if self.remainingChambers == 0 and not self.config.spin_chamber.enabled then
@@ -37,7 +39,7 @@ function FaerunianRoulette:ShouldFireBullet()
 end
 
 function FaerunianRoulette:Reload()
-  self.remainingBullets = self.config.bullets_in_chamber
+  self.remainingBullets = self.config.bullets_in_chambers
   self.remainingChambers = self.config.chamber_size
 end
 
@@ -48,15 +50,15 @@ function FaerunianRoulette:ApplyBulletEffects()
     Osi.PlayEffect(self.character, self.config.trigger_effect.sound_effect.sound)
     Osi.PlayEffect(self.character, "44c46f2c-caba-ddbf-c1b5-1af6e245356f")
     Osi.Die(self.character)
-  end
 
-  if true then
+    -- if true then
     self.remainingBullets = self.remainingBullets - 1
     -- self.remainingChambers = self.remainingChambers - 1
 
-    if self.remainingBullets == 0 then
+    if self.remainingBullets <= 0 then
       self:Reload()
     end
+    -- end
   end
 end
 

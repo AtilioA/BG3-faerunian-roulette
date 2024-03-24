@@ -50,7 +50,7 @@ Config = VCHelpers.Config:New({
         },
       },
       chamber_size = 6,       -- Default is a six-chamber 'revolver'
-      bullets_in_chamber = 1, -- Default is 1, which is the same as having one 'bullet' in the 'chamber'
+      bullets_in_chambers = 1, -- Default is 1, which is the same as having one 'bullet' in the 'chamber'
       spin_chamber = {        -- Reset the 'revolver chamber' after a trigger, to guarantee the same effect chance every time. If disabled, the chances will increase with each trigger. https://en.wikipedia.org/wiki/Russian_roulette#Variant:_revolver_only_spun_once_at_the_start
         enabled = true,
         sound_effect = {
