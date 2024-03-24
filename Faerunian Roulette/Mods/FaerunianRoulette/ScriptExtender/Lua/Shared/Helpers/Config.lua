@@ -6,10 +6,11 @@ Config = VCHelpers.Config:New({
       enabled = true, -- Toggle the mod on/off
     },
     FEATURES = {
-      trigger_effect = {       -- What should happen when the 'trigger' is pulled and the 'chamber' has a 'bullet' in it. Having more than one of these enabled will make them share their chance of being triggered (e.g. 50% chance for each if two are enabled and they have the same chamber size)
+      trigger_effect = {  -- What should happen when the 'trigger' is pulled and the 'chamber' has a 'bullet' in it. Having more than one of these enabled will make them share their chance of being triggered (e.g. 50% chance for each if two are enabled and they have the same chamber size)
         sound_effect = {
-          enabled = true,      -- Play a sound effect
-          sound = "Spell_Cast_Damage_Force_EldritchBlast_L1to3",    -- Sound effect to play
+          enabled = true, -- Play a sound effect
+          -- sound = "Spell_Cast_Damage_Force_EldritchBlast_L1to3",    -- Sound effect to play
+          sound = "dee8060b-c1c2-7343-db76-dd7f2cd36e24"
         },
         kill = true,           -- Kill the character
         downed = false,        -- Down the character
@@ -80,4 +81,4 @@ Config:AddConfigReloadedCallback(function(configInstance)
   FRPrinter.DebugLevel = configInstance:GetCurrentDebugLevel()
   FRPrint(0, "Config reloaded: " .. Ext.Json.Stringify(configInstance:getCfg(), { Beautify = true }))
 end)
-Config:RegisterReloadConfigCommand("src")
+Config:RegisterReloadConfigCommand("fr")
