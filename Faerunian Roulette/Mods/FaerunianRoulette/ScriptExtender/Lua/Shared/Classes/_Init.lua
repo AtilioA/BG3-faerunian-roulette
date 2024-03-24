@@ -1,3 +1,3 @@
 RequireFiles("Shared/Classes/", {
-  -- "ShortRest"
+  "FaerunianRoulette"
 })

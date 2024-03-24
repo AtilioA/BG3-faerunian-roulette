@@ -33,6 +33,4 @@ else
     FRPrint(0, "Volitio's Faerûnian Roulette version " .. versionNumber .. " loaded")
 end
 
--- ShortRestInstance = ShortRest:New()
-
 SubscribedEvents.SubscribeToEvents()
