@@ -44,20 +44,17 @@ function FaerunianRoulette:Reload()
 end
 
 function FaerunianRoulette:ApplyBulletEffects()
-  -- TODO: Handle effect logic, e.g., 'kill', 'downed', 'heal', 'damage', statuses...
+  -- TODO: Handle different effect logic, e.g., 'kill', 'downed', 'heal', 'damage', statuses...
   if self.config.trigger_effect.kill and Osi.IsInPartyWith(GetHostCharacter(), self.character) == 0 then
-    FRWarn(0, "Bullet fired!")
-    Osi.PlayEffect(self.character, self.config.trigger_effect.sound_effect.sound)
-    Osi.PlayEffect(self.character, "44c46f2c-caba-ddbf-c1b5-1af6e245356f")
-    Osi.Die(self.character)
+    Effects.KillEffect.apply(self.character)
+  end
 
-    -- if true then
-    self.remainingBullets = self.remainingBullets - 1
-    -- self.remainingChambers = self.remainingChambers - 1
+  -- if true then
+  self.remainingBullets = self.remainingBullets - 1
+  -- self.remainingChambers = self.remainingChambers - 1
 
-    if self.remainingBullets <= 0 then
-      self:Reload()
-    end
+  if self.remainingBullets <= 0 then
+    self:Reload()
     -- end
   end
 end

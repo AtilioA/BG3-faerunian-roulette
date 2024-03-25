@@ -1,3 +1,4 @@
 RequireFiles("Shared/Classes/", {
-  "FaerunianRoulette"
+  "ITriggers/_Init",
+  "FaerunianRoulette",
 })
