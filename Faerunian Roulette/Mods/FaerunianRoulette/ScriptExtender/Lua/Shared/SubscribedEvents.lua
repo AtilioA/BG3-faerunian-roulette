@@ -9,7 +9,7 @@ function SubscribedEvents.SubscribeToEvents()
 
     Ext.Osiris.RegisterListener("TurnStarted", 1, "after", EHandlers.OnTurnStarted)
 
-    -- Ext.Osiris.RegisterListener("TimerFinished", 1, "after", EHandlers.OnTimerFinished)
+    Ext.Osiris.RegisterListener("TimerFinished", 1, "after", EHandlers.OnTimerFinished)
   end
 end
 
