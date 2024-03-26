@@ -71,7 +71,7 @@ function FaerunianRoulette:AfterTriggerPull()
 end
 
 function FaerunianRoulette:SpinChamber()
-  self.remainingChambers = self.chamber_size
+  self.remainingChambers = self.config.chamber_size
 end
 
 -- REVIEW: we might want to play effects instead, they have a visual and audio component and most of the time the sound is not played if used "as a sound effect"
