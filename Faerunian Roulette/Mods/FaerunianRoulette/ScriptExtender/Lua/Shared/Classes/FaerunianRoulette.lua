@@ -45,7 +45,10 @@ end
 
 function FaerunianRoulette:ApplyBulletEffects()
   -- TODO: Handle different effect logic, e.g., 'kill', 'downed', 'heal', 'damage', statuses...
-  if self.config.trigger_effect.kill and Osi.IsInPartyWith(GetHostCharacter(), self.character) == 0 then
+  -- if Config:getCfg().FEATURES.trigger_effect.
+  if self.config.trigger_effect.ignore.bosses and Osi.IsBoss(self.character) == 1 then
+    FRDebug(1, "Ignoring bosses.")
+  elseif self.config.trigger_effect.kill and Osi.IsInPartyWith(GetHostCharacter(), self.character) == 0 then
     Effects.KillEffect.apply(self.character)
   end
 
