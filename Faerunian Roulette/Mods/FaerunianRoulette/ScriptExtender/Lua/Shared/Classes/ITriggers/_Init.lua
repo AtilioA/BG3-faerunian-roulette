@@ -1,4 +1,4 @@
-RequireFiles("Shared/Classes/ITriggers", {
+RequireFiles("Shared/Classes/ITriggers/", {
   "Effect",
   "KillEffect",
   "ProneEffect",
