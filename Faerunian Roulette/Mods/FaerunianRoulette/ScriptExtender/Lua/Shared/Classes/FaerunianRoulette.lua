@@ -89,7 +89,11 @@ function FaerunianRoulette:AfterTriggerPull()
 end
 
 function FaerunianRoulette:SpinChamber()
+  FRDebug(2, "Spinning the chamber.")
   self.remainingChambers = self.config.chamber_size
+  if self.config.spin_chamber.sound_effect.enabled then
+    self:PlaySoundEffect(self.config.spin_chamber.sound_effect)
+  end
 end
 
 -- REVIEW: we might want to play effects instead, they have a visual and audio component and most of the time the sound is not played if used "as a sound effect"
