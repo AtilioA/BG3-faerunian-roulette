@@ -3,4 +3,5 @@ RequireFiles("Shared/Classes/ITriggers/", {
   "KillEffect",
   "DamageEffect",
   "HealEffect",
+  "StatusEffect",
 })
