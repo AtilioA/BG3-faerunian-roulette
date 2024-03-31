@@ -85,7 +85,7 @@ function FaerunianRoulette:AfterTriggerPull()
     self:SpinChamber()
   end
 
-  -- REVIEW: Additional post-trigger logic
+  -- REVIEW: Additional post-trigger logic?
 end
 
 function FaerunianRoulette:SpinChamber()
@@ -100,6 +100,8 @@ end
 function FaerunianRoulette:PlaySoundEffect(sound)
   if sound.enabled then
     FRDebug(0, "Playing sound effect:", sound.sound)
+    Osi.PlayEffect(self.character, sound.sound)
     Osi.PlaySound(self.character, sound.sound)
+    Osi.PlaySoundResource(self.character, sound.sound)
   end
 end

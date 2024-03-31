@@ -9,7 +9,7 @@ Config = VCHelpers.Config:New({
       chamber_size = 6,                                  -- Default is a six-chamber 'revolver'
       bullets_in_chambers = 1,                           -- Default is 1, which is the same as having one 'bullet' in the 'chamber'
       trigger_effect = {                                 -- What should happen when the 'trigger' is pulled and the 'chamber' has a 'bullet' in it. Having more than one of these enabled will make one be randomly picked, essentially sharing the probability of each effect happening.
-        sound_effect = {                                -- Play a sound effect when the effect is triggered
+        sound_effect = {                                 -- Play a sound effect when the effect is triggered
           enabled = true,                                -- Play a sound effect
           sound = "dee8060b-c1c2-7343-db76-dd7f2cd36e24" -- Sound effect to play
         },
@@ -42,10 +42,9 @@ Config = VCHelpers.Config:New({
       },
       spin_chamber = { -- Reset the 'revolver chamber' after 'pulling the trigger', to guarantee the same effect chance every time. If disabled, the chances will increase with each 'trigger pull'. https://en.wikipedia.org/wiki/Russian_roulette#Variant:_revolver_only_spun_once_at_the_start
         enabled = true,
-        sound_effect = {
-          enabled = true,
-          sound = "Spell_Cast_Damage_Force_EldritchBlast_L1to3"
-          -- sound = "VFX_TrialOfJustice_LightningOrb",
+        sound_effect = { -- Whether to play a sound effect when spinning the chamber
+          enabled = false,
+          sound = "005ce565-5ef6-488d-b171-37153f4605cf"
         }
       }
     },
