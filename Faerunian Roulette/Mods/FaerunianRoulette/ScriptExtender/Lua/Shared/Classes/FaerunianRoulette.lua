@@ -44,12 +44,30 @@ function FaerunianRoulette:Reload()
 end
 
 function FaerunianRoulette:ApplyBulletEffects()
-  -- TODO: Handle different effect logic, e.g., 'kill', 'downed', 'heal', 'damage', statuses...
-  -- if Config:getCfg().FEATURES.trigger_effect.
+  local enabledEffects = {}
+
+  -- I was going to implement a strategy pattern here, but the deadline is too close, sorry!
   if self.config.trigger_effect.ignore.bosses and Osi.IsBoss(self.character) == 1 then
     FRDebug(1, "Ignoring bosses.")
-  elseif self.config.trigger_effect.kill and Osi.IsInPartyWith(GetHostCharacter(), self.character) == 0 then
-    Effects.KillEffect.apply(self.character)
+  else
+    if self.config.trigger_effect.kill then
+      table.insert(enabledEffects, Effects.KillEffect.apply)
+    end
+    if self.config.trigger_effect.damage.enabled then
+      table.insert(enabledEffects, Effects.DamageEffect.apply)
+    end
+    if self.config.trigger_effect.heal.enabled then
+      table.insert(enabledEffects, Effects.HealEffect.apply)
+    end
+    if self.config.trigger_effect.apply_status.enabled then
+      table.insert(enabledEffects, Effects.StatusEffect.apply)
+    end
+  end
+
+  -- If there are enabled effects, randomly select and apply one
+  if #enabledEffects > 0 then
+    local randomEffect = enabledEffects[Ext.Math.Random(1, #enabledEffects)]
+    randomEffect(self.character)
   end
 
   -- if true then
