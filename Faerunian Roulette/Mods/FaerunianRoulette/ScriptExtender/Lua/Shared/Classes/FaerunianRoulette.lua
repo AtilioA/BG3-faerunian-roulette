@@ -2,7 +2,7 @@
 FaerunianRoulette = _Class:Create("FaerunianRoulette", nil, {
   character = nil,
   handledCharacter = false,
-  remainingChambers = Config:getCfg().FEATURES.chamber_size,
+  remainingChambers = Config:getCfg().FEATURES.cylinder_size,
   remainingBullets = Config:getCfg().FEATURES.bullets_in_chambers,
   config = Config:getCfg().FEATURES
 })
@@ -40,7 +40,7 @@ end
 
 function FaerunianRoulette:Reload()
   self.remainingBullets = self.config.bullets_in_chambers
-  self.remainingChambers = self.config.chamber_size
+  self.remainingChambers = self.config.cylinder_size
 end
 
 function FaerunianRoulette:ApplyBulletEffects()
@@ -90,7 +90,7 @@ end
 
 function FaerunianRoulette:SpinChamber()
   FRDebug(2, "Spinning the chamber.")
-  self.remainingChambers = self.config.chamber_size
+  self.remainingChambers = self.config.cylinder_size
   if self.config.spin_chamber.sound_effect.enabled then
     self:PlaySoundEffect(self.config.spin_chamber.sound_effect)
   end
