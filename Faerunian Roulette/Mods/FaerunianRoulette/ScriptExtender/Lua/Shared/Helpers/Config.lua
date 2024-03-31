@@ -9,7 +9,7 @@ Config = VCHelpers.Config:New({
       chamber_size = 6,                                  -- Default is a six-chamber 'revolver'
       bullets_in_chambers = 1,                           -- Default is 1, which is the same as having one 'bullet' in the 'chamber'
       trigger_effect = {                                 -- What should happen when the 'trigger' is pulled and the 'chamber' has a 'bullet' in it. Having more than one of these enabled will make one be randomly picked, essentially sharing the probability of each effect happening.
-        sound_effect = {
+        sound_effect = {                                -- Play a sound effect when the effect is triggered
           enabled = true,                                -- Play a sound effect
           sound = "dee8060b-c1c2-7343-db76-dd7f2cd36e24" -- Sound effect to play
         },
@@ -24,7 +24,7 @@ Config = VCHelpers.Config:New({
         },
         apply_status = {                                 -- Apply a random status to the character. This includes over a hundred statuses, so expect chaos! Save often.
           enabled = false,
-          max_duration = 2,                              -- Max duration of the status in turns. May stack statuses.
+          max_duration = 3,                              -- Max duration of the status in turns. May stack statuses.
           ignore_resistances = false                     -- Ignore resistances when applying the status
         },
         ignore = {
