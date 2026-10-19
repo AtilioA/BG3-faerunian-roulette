@@ -12,9 +12,6 @@ end
 RequireFiles("Shared/", {
     "MetaClass",
     "Helpers/_Init",
-    "Classes/_Init",
-    "SubscribedEvents",
-    "EventHandlers",
 })
 
 local VCModuleUUID = "f97b43be-7398-4ea5-8fe2-be7eb3d4b5ca"
@@ -32,11 +29,3 @@ else
     local versionNumber = table.concat(MODVERSION, ".")
     FRPrint(0, "Volitio's Faerûnian Roulette version " .. versionNumber .. " loaded")
 end
-
-RouletteGame = _MetaClass.New(FaerunianRoulette)
--- Wrap the instance with the debugging layer
-if Config:getCfg().DEBUG.level > 1 then
-    RouletteGame = _MetaClass._Debug(RouletteGame)
-end
-
-SubscribedEvents.SubscribeToEvents()

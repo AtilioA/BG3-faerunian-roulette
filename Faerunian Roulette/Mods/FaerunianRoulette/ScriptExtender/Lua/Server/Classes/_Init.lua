@@ -1,4 +1,4 @@
-RequireFiles("Shared/Classes/", {
+RequireFiles("Server/Classes/", {
   "ITriggers/_Init",
   "FaerunianRoulette",
 })

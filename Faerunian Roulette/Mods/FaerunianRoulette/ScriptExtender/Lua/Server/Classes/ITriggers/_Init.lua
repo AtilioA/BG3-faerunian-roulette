@@ -1,4 +1,4 @@
-RequireFiles("Shared/Classes/ITriggers/", {
+RequireFiles("Server/Classes/ITriggers/", {
   "Effect",
   "KillEffect",
   "DamageEffect",
